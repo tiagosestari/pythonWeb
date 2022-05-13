@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    {% for movie in movies %}
+    <h3>{{movie}} <a href='/movies/{{movie.id}}/delete'> Delete </a></h3><hr>
+    {% endfor %}
+
+    <p><a href="/movies/addmovie">Add new movie</a></p>
+</body>
+</html>

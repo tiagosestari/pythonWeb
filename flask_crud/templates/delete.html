@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <p>Are you sure you want to delete?</p>
+    <p>{{movie}}</p>
+    <form action="/movies/{{movie.id}}/delete" method="POST">
+        <a href="/movies">Cancel</a>
+        <input type="submit" value="Confirm">
+    </form>
+
+</body>
+</html>
