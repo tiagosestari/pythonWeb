@@ -71,6 +71,37 @@ def delete(id):
             return redirect("/movies")
         
 #UPDATE ROUTES 
+@app.route('/movies/<int:id>/update', methods = ['GET', 'POST'])
+def update(id):
+    movie = MovieModel.query.filter_by(id = id).first()
+    if (request.method == 'GET'):
+        if movie:
+            return render_template('update.html', movie = movie)
+        else:
+            return f"No movie with ID {id}"
+    
+    if (request.method == 'POST'):
+        if movie:
+            db.session.delete(movie)
+            db.session.commit()
+
+            name = request.form['name']
+        
+            if (request.form['like'] == 'like'):
+                like = True
+            else:
+                like = False
+
+            if ('watched' in request.form):
+                watched = True
+            else:
+                watched = False
+
+            new_movie = MovieModel(name=name, like=like, watched=watched)
+            db.session.add(new_movie)
+            db.session.commit()
+
+            return redirect("/movies")
 
 if __name__ == '__main__':
     app.run(debug=True)

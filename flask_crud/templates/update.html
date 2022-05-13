@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <form action="/movies/{{movie.id}}/update" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{movie.name}}">
+        <br>
+        <label for="watched">Watched</label>
+        {% if movie.watched == True %}
+        <input type="checkbox" name="watched" id="watched" checked>
+        {% else %}
+        <input type="checkbox" name="watched" id="watched">
+        {% endif %}
+        <br>
+        <label for="like">Liked</label>
+        <label for="dislike">Disliked</label>
+        {% if movie.like == True %}
+        <input type="radio" name="like" id="like" value="like" checked>
+        <input type="radio" name="like" id="dislike" value="dislike"> 
+        {% else %}
+        <input type="radio" name="like" id="like" value="like">
+        <input type="radio" name="like" id="dislike" value="dislike" checked>
+        {% endif %} 
+
+        <br>
+        
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>

@@ -4,7 +4,10 @@
 </head>
 <body>
     {% for movie in movies %}
-    <h3>{{movie}} <a href='/movies/{{movie.id}}/delete'> Delete </a></h3><hr>
+    <h3>Id: {{movie.id}} - Name: <a href='/movies/{{movie.id}}'>{{movie.name}}</a> <a href='/movies/{{movie.id}}/delete'> Delete </a></h3>
+    <p>{{movie.watched}}</p>
+    <p>{{movie.like}}</p>
+    <hr>
     {% endfor %}
 
     <p><a href="/movies/addmovie">Add new movie</a></p>
